@@ -10,8 +10,9 @@ This is a simple Spring Boot application built with Java 21 and Maven.
 
 - Java Development Kit (JDK) 21 or later.
 - Maven (or use the provided Maven wrapper `mvnw`).
+- Docker (for Docker instructions).
 
-## Building and Running the Application
+## Building and Running the Application (Using Maven)
 
 1.  **Clone the repository (if you haven't already):**
     ```bash
@@ -39,9 +40,24 @@ This is a simple Spring Boot application built with Java 21 and Maven.
         ```
         (Replace `demo-0.0.1-SNAPSHOT.jar` with the actual JAR file name if it differs).
 
+## Building and Running the Application (Using Docker)
+
+1.  **Build the Docker image:**
+    Make sure you are in the root directory of the project where the `Dockerfile` is located.
+    ```bash
+    docker build -t spring-boot-demo .
+    ```
+    This command builds a Docker image tagged as `spring-boot-demo`.
+
+2.  **Run the Docker container:**
+    ```bash
+    docker run -p 8080:8080 spring-boot-demo
+    ```
+    This command runs the Docker container and maps port 8080 of the container to port 8080 on your host machine.
+
 ## Accessing the Endpoint
 
-Once the application is running, you can access the "Hello World" endpoint by opening your web browser or using a tool like `curl`:
+Once the application is running (either via Maven or Docker), you can access the "Hello World" endpoint by opening your web browser or using a tool like `curl`:
 
 ```
 http://localhost:8080/hello

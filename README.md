@@ -11,6 +11,7 @@ This is a simple Spring Boot application built with Java 21 and Maven.
 - Java Development Kit (JDK) 21 or later.
 - Maven (or use the provided Maven wrapper `mvnw`).
 - Docker (for Docker instructions).
+- Jenkins (for CI/CD pipeline).
 
 ## Building and Running the Application (Using Maven)
 
@@ -67,3 +68,18 @@ You should see the response:
 ```
 Hello World
 ```
+
+## CI/CD Pipeline with Jenkins
+
+This project includes a `Jenkinsfile` which defines a CI/CD (Continuous Integration/Continuous Delivery) pipeline for automating the build, test, and deployment processes.
+
+The `Jenkinsfile` provides a basic structure for a declarative pipeline and includes the following stages:
+
+1.  **Checkout**: Checks out the source code from the version control system.
+2.  **Build**: Compiles the application and packages it using Maven (`./mvnw clean package -DskipTests`).
+3.  **Test**: Runs the unit tests using Maven (`./mvnw test`).
+4.  **Code Quality**: A placeholder stage for integrating code quality analysis tools like SonarQube. (Requires further Jenkins and SonarQube configuration).
+5.  **Build Docker Image**: Builds a Docker image of the application using the provided `Dockerfile`.
+6.  **Publish Docker Image**: A placeholder stage for publishing the Docker image to a container registry (e.g., Docker Hub, ECR, GCR). (Requires further Jenkins configuration with Docker registry credentials).
+
+**Note:** Some steps in the `Jenkinsfile`, such as code quality analysis and publishing the Docker image, are placeholders. They require additional configuration in your Jenkins environment (e.g., SonarQube server integration, Docker registry credentials) to be fully functional. The pipeline is designed to be run in a Jenkins environment where Docker and Maven are accessible.
